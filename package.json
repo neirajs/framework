@@ -1,0 +1,12 @@
+{
+  "name": "klontong",
+  "version": "0.0.1",
+  "main": "app.js",
+  "author": "adeyahyaprasetyo@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
