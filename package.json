@@ -5,8 +5,17 @@
   "author": "adeyahyaprasetyo@gmail.com",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "npx nodemon bin/www"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "dyimp": "^0.0.1",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5",
+    "npx": "^10.2.0"
   }
 }
