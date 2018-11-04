@@ -1,6 +1,8 @@
 env:
   node: true
 extends: 'eslint:recommended'
+plugins:
+  - mocha
 parserOptions:
   ecmaVersion: 6
 rules:
@@ -14,5 +16,8 @@ rules:
     - error
     - single
   semi:
+    - error
+    - always
+  mocha/no-exclusive-tests:
     - error
     - always

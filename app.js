@@ -17,6 +17,5 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(routes);
-app.listen(3000);
 
 module.exports = app;

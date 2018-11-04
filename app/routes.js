@@ -22,7 +22,7 @@ router.group('/user', function(route) {
 });
 
 router.all('*', (req, res) => {
-  res.send('not found!');
+  res.status(404).send('not found!');
 });
 
 module.exports = router;
