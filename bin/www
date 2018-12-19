@@ -1,12 +1,37 @@
-const dotenv = require('dotenv');
 const dyimp = require('dyimp');
 const app = dyimp('app');
-const config = dotenv.config();
+const db = dyimp('framework/database');
+const ora = require('ora');
+const config = dyimp('config');
 
 if (config.error) {
   throw config.error;
 }
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`listening on port ${process.env.PORT}`);
-});
+function validateDbConnection() {
+  const dbSpinner = ora('Checking database connection').start();
+  db.query(
+    "show status where `variable_name` = 'Threads_connected'",
+    (err, results, fields) => {
+      if (err) {
+        dbSpinner.fail('Unable connecting to database');
+        dbSpinner.stop();
+        throw err;
+      } else {
+        dbSpinner.succeed('Successfully connected to the database');
+        dbSpinner.stop();
+        start();
+      }
+    }
+  )
+}
+
+if (!!config.database.database) {
+  validateDbConnection();
+}
+
+function start() {
+  app.listen(config.app.port || 3000, () => {
+    console.log(`listening on port ${config.app.port || 3000}`);
+  });
+}

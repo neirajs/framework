@@ -2,18 +2,29 @@
   "name": "neira-framework",
   "version": "0.0.1",
   "main": "app.js",
-  "author": "adeyahyaprasetyo@gmail.com",
+  "author": {
+    "name": "Ade Yahya",
+    "email": "adeyahyaprasetyo@gmail.com"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/neirajs/framework"
+  },
   "license": "MIT",
-  "private": false,
   "scripts": {
     "dev": "nodemon bin/www",
     "test": "mocha tests/**/*.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "dotenv": "^6.1.0",
     "dyimp": "^0.0.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mysql2": "^1.6.4",
+    "ora": "^3.0.0",
+    "yaml": "^1.0.1"
+  },
+  "resolutions": {
+    "**/event-stream": "^4.0.1"
   },
   "devDependencies": {
     "eslint-plugin-mocha": "^5.2.0",
