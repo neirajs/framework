@@ -1,6 +1,5 @@
 const dyimp = require('dyimp');
 const app = dyimp('app');
-const db = dyimp('framework/database');
 const ora = require('ora');
 const config = dyimp('config');
 
@@ -9,13 +8,13 @@ if (config.error) {
 }
 
 function validateDbConnection() {
+  const db = dyimp('framework/database');
   const dbSpinner = ora('Checking database connection').start();
   db.query(
     "show status where `variable_name` = 'Threads_connected'",
     (err, results, fields) => {
       if (err) {
         dbSpinner.fail('Unable connecting to database');
-        dbSpinner.stop();
         throw err;
       } else {
         dbSpinner.succeed('Successfully connected to the database');
@@ -26,7 +25,7 @@ function validateDbConnection() {
   )
 }
 
-if (!!config.database.database) {
+if (config.database.database) {
   validateDbConnection();
 }
 
