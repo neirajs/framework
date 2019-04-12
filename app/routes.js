@@ -12,6 +12,9 @@ const router = dyimp('http/router');
 | like router.group().
 |
 */
+router.get('/', function(req, res) {
+  return res.render('home');
+})
 router.group('/user', function(route) {
   route.get('/foo', function(req, res) {
     res.send('hello foo');
